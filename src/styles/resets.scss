@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Patrick+Hand&display=swap');
+
+html, body, *, *::after, *::before {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-indent: 0;
+}
+
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    // background: #8a048f;
+    background: #f2f2f2;
+    height: 100%;
+    width: 100vw;
+    user-select: none;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Patrick Hand', cursive;
+
+}
+
+button {
+    font-family: inherit;
+}
