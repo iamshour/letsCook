@@ -1,36 +1,30 @@
-// import { Skeleton } from "@material-ui/lab"
+import Recipe from "./Recipe";
+import "../styles/main.scss"
 
-import Skeleton from '@material-ui/lab/Skeleton';
-
-const Content = ({ clicked, submit, input, setInput, recipes }) => {
+const Content = ({ submit, input, setInput, recipes, isLoading }) => {
 
     return (
         <div className="content">
-            { !clicked && <h1>INITIAL CONTENT</h1>}
-            { clicked && 
-                <>
-                    <form onSubmit={submit}>
-                        <input type="text" placeholder="search for recipes" value={input} onChange={(e) => setInput(e.target.value)}/>
-                        <button>Search</button>
-                    </form>
-
+            <form onSubmit={submit}>
+                <input type="text" placeholder="search for recipes" value={input} onChange={(e) => setInput(e.target.value)}/>
+                <button>Search</button>
+            </form>
+            <div>
+                { isLoading ? <h1>Loading...</h1> : <div className='recipes-container'>
                     {recipes.map(recipe => (
-                        <div key={recipe.recipe.uri} className='recipe-card'>
-                            { recipe ? (
-                                <h1 className='recipe-title'>{recipe.recipe.label}</h1>
-                            ) : (
-                                <Skeleton variant="rect" width={210} height={118} />
-                            ) }
-                            <img src={recipe.recipe.image ? recipe.recipe.image : 'https://safetyaustraliagroup.com.au/wp-content/uploads/2019/05/image-not-found.png'} alt={recipe.recipe.label} />
-                            <h6>{Math.round(recipe.recipe.calories)} Cal</h6>
-                        </div>
+                        <Recipe 
+                            key={recipe.recipe.uri}
+                            image={recipe.recipe.image}
+                            calories={recipe.recipe.calories}
+                            label={recipe.recipe.label}
+                            alt={recipe.recipe.label}
+                        />
                     ))}
-                </>
-            }
+                </div>
+                }
+            </div>
         </div>
     )
 }
 
 export default Content
-
-{/* <Skeleton variant="rect" width={210} height={118} /> */}
