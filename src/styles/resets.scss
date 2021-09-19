@@ -3,6 +3,7 @@
 html, body, *, *::after, *::before {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 ul, ol, li {
@@ -18,8 +19,8 @@ html {
     font-size: 62.5%;
 }
 
-*, *::after, *::before {
-    box-sizing: border-box;
+a, Link {
+    text-decoration: none;
 }
 
 body {
